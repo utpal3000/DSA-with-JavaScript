@@ -176,10 +176,15 @@ nodePresent = myList.search(12)
 console.log(nodePresent);
 
 myList.insertAtStart(10)
+
 myList.insertAtEnd(200)
+// myList.insertAtStart(20)
+
+myList.insertAtEnd(400)
+
 
 console.log(myList);
-console.log(myList.reverse());
+// console.log(myList.reverse());
 console.log(myList);
 
 // myList.DeleteFirstNode()
