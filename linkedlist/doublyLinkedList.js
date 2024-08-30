@@ -71,6 +71,38 @@ DoublyLinkedList.prototype.deleteFirstNode = function () {
     }
 }
 
+DoublyLinkedList.prototype.deleteLastNode = function () {
+    if(!this.tail){
+        console.log("DLL is empty");
+        return
+    }
+    if(this.head == this.tail){
+        this.head = null
+        this.tail = null
+    }else{
+        this.tail = this.tail.prev
+        this.tail.next = null
+    }
+
+}
+
+DoublyLinkedList.prototype.reverse = function(){
+    let current = this.head;
+    let temp = null
+    while(current != null){
+        // swapping
+        temp = current.prev
+        current.prev = current.next
+        current.next=temp
+        // move to next node
+        current = current.prev
+    }
+    if (temp!=null){
+        this.tail = this.head
+        this.head = temp.prev
+    }
+}
+
 // Testing
 
 let plist = new DoublyLinkedList()
@@ -78,7 +110,8 @@ plist.insertAtBeginning(20)
 plist.insertAtBeginning(10)
 
 plist.insertAtEnd(200)
-plist.deleteFirstNode()
+// plist.deleteFirstNode()
+plist.reverse()
 console.log(plist);
 
 
